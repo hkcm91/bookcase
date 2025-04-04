@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ritual Bookshelf</title>
+  <style>
+    #bookshelf {
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+  gap: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  padding: 10px;
+}
+    .slot {
+  width: 100px;
+  height: 150px;
+  border: 1px dashed #ccc;
+  background-color: #f9f9f9;
+  position: relative;
+}
+    .book {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      position: relative;
+      cursor: pointer;
+    }
+    .progress-bar {
+      height: 5px;
+      background: limegreen;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .star {
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .selected {
+      color: gold;
+    }
+    #bookModal {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 1em;
+      border: 1px solid #ccc;
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <div id="bookshelfWrapper">
+    <div id="bookshelf"></div>
+  </div>
+
+  <div id="bookModal">
+    <div id="modalImagePreview" style="width: 100px; height: 150px; background-size: cover;"></div>
+    <input id="bookTitle" placeholder="Title" /><br />
+    <input id="bookAuthor" placeholder="Author" /><br />
+    <input id="bookSeries" placeholder="Series" /><br />
+    <input id="bookProgress" type="number" placeholder="Progress %" /><br />
+    <textarea id="bookCharacters" placeholder="Characters"></textarea><br />
+    <textarea id="bookPlot" placeholder="Plot summary"></textarea><br />
+    <div id="starRating"></div>
+    <button onclick="saveBookInfo()">Save</button>
+    <button onclick="deleteBook()">Delete</button>
+  </div>
+
+  <button onclick="addRow()">Add Row</button>
+  <button onclick="addColumn()">Add Column</button>
+  <button onclick="removeEmptyRow()">Remove Row</button>
+  <button onclick="removeEmptyColumn()">Remove Column</button>
+  <button onclick="setZoom(1)">Zoom 100%</button>
+  <button onclick="setZoom(0.8)">Zoom 80%</button>
+
+  
+  <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
